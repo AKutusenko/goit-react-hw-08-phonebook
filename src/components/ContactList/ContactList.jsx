@@ -4,11 +4,11 @@ import s from "./ContactList.module.css";
 import {
   getContacts,
   removeContact,
-} from "../../redux/contacts/contacts-operations";
+} from "../../redux/contacts/contactsOperations";
 import {
   getContactsFromState,
   getFilterFromState,
-} from "../../redux/contacts/contacts-selectors";
+} from "../../redux/contacts/contactsSelectors";
 
 export default function ContactList() {
   const contacts = useSelector(getContactsFromState);

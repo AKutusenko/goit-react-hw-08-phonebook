@@ -1,38 +1,21 @@
-import ContactList from "./components/ContactList/ContactList";
-import Form from "./components/Form/Form";
-import Filter from "./components/Filter/Filter";
-import s from "./App.module.css";
+import "./App.module.css";
+import Container from "./components/Container/Container";
+import AppBar from "./components/AppBar/AppBar";
+import { Switch, Route } from "react-router-dom";
+// import ContactsView from "./view/ContactsView/ContactsView";
+import LoginView from "./view/LoginView/LoginView";
+import RegisterView from "./view/RegisterView/RegisterView";
+import WorkPlace from "./components/WorkPlace/WorkPlace";
 
 export default function App() {
-  // useEffect(() => {
-  //   const contacts = JSON.parse(localStorage.getItem("contacts"));
-  //   if (contacts) {
-  //     setContacts(contacts);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   const contacts = JSON.parse(localStorage.getItem("contacts"));
-  //   if (contacts) {
-  //     store.setState(contacts);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("contacts", JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // useEffect(() => {
-  //   localStorage.setItem("contacts", JSON.stringify(store.getState().contacts));
-  // }, [contacts]);
-
   return (
-    <>
-      <h1 className={s}>Phonebook</h1>
-      <Form />
-      <h2 className={s}>Contacts</h2>
-      <Filter />
-      <ContactList />
-    </>
+    <Container>
+      <AppBar />
+      <Switch>
+        <Route path="/register" component={RegisterView} />
+        <Route path="/login" component={LoginView} />
+        <Route path="/" component={WorkPlace} />
+      </Switch>
+    </Container>
   );
 }
